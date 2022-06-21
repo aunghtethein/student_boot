@@ -1,0 +1,39 @@
+<!doctype html>
+<html th:replace="~{layouts/main :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<main role="main">
+
+    <div class="container mt-5 jumbotron">
+
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-4 py-4">
+                <h2>Class Registration</h2>
+                <hr/>
+                <form th:action="@{/class-process}" th:object="${classBean}" method="post">
+                    <div class="form-group">
+                        <label for="className">ClassName</label>
+                        <input type="text" id="className" name="className" class="form-control" placeholder=""
+                               th:field="*{className}" th:classappend="${#fields.hasErrors('className')} ? 'is-invalid'">
+                        <div class="invalid-feedback" th:errors="*{className}"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fees">Fees</label>
+                        <input type="text" id="fees" name="fees" class="form-control" placeholder=""
+                               th:field="*{fees}" th:classappend="${#fields.hasErrors('fees')} ? 'is-invalid'">
+                        <div class="invalid-feedback" th:errors="*{fees}"></div>
+                    </div>
+
+                    
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+</body>
+</html>

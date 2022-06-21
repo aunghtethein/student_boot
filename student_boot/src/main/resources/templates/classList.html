@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html th:replace="~{layouts/main :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+
+<body>
+ <main role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-3">
+                            <h4>CLASS</h4>
+                        </div>
+                        <div class="col-md-9">
+                        	<a href="#" th:href="@{/class-reg}"  class="btn btn-secondary" >Class Registration</a>
+                        </div>
+                </div>
+
+		      <div class="col-md-12 mt-5" th:unless="${#lists.isEmpty(classes)}">
+                    <table class="table table-striped" >
+                        <thead>
+                            <tr>
+                            	<th>ID</th>
+                                <th>Name</th>
+                                <th>Fees</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="bean : ${classes}">
+                                <td th:text="${bean.id}"></td>
+                                <td th:text="${bean.className}"></td>
+                                <td th:text="${bean.fees}"></td>
+                                <td><a th:href="@{/delete-class/{id}(id=${bean.id})}">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+    
+    
+</body>
+</html>

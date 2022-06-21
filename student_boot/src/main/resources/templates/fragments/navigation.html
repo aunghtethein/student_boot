@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html th:fragment="layout (content)" xmlns:th="http://www.thymeleaf.org"
+     xmlns="http://www.w3.org/1999/html">
+<body>
+
+<nav th:fragment="navigation" class="navbar navbar-expand-md navbar-dark bg-dark text-white">
+    <a class="navbar-brand" href="#" th:href="@{/home}">Student Management</a>
+        <div class="navbar-nav mr-auto">
+            <a class="nav-link" href="#" th:href="@{/student-reg}"><i class="fas fa-book"></i> Student Registration </a>
+            <a class="nav-link" href="#" th:href="@{/student/all}"><i class="fas fa-stream"></i> Students</a>
+            <a class="nav-link" href="#" th:href="@{/class-list}"><i class="fas fa-shopping-cart"></i> Class List</a>
+            <a class="nav-link" href="#" th:href="@{/class-reg}"><i class="fas fa-stream"></i> Class Registration</a>
+         	<a class="nav-link" href="#" th:href="@{/user-list}"><i class="fas fa-stream"></i> User List</a>
+         
+        
+            <a class="nav-link" href="#" th:href="@{/register}"><i class="fas fa-stream"></i> Register</a>
+          	<a class="nav-link" href="#" th:href="@{/login}"><i class="fas fa-stream"></i> Login</a>
+       	
+       
+        </div>
+        
+</nav>
+
+
+</body>
+</html>

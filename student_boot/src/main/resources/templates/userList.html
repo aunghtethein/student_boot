@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html th:replace="~{layouts/main :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+
+
+<body>
+ <main role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                        <div class="col-md-2">
+                            <h4>USERS</h4>
+                            
+                            
+                        </div>
+                        <div class="col-md-8">
+                        	<div class="row">
+                        	<form action="#" th:action="@{/user-list}">
+                        		Filter: <input type="text" name="keyword" size="20" th:value="${keyword}" placeholder="Search By ID or Name" required />
+	                        	&nbsp;
+   								<input type="submit" value="Search" class="btn btn-secondary" />
+  							    &nbsp;
+  								<a href="#" th:href="@{/user-list}"  class="btn btn-primary" >Clear</a>
+	                        		
+                        	</form>
+                        	</div>
+                        </div>
+                        <div class="col-md-2">
+                        	 <a href="#" th:href="@{/register}" class="btn btn-secondary"><i class="fas fa-user-plus"></i> Register</a>
+                        </div>
+                        
+                        
+                </div>
+
+
+
+               <div class="col-md-12 mt-5" th:unless="${#lists.isEmpty(users)}">
+                    <table class="table table-striped" >
+                        <thead>
+                            <tr>
+                            	<th>ID</th>
+                                <th>Name</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="user : ${users}">
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.username}"></td>
+                                <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
+                                <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+               </div>
+
+        </div>
+
+    </main>
+    
+    
+</body>
+</html>

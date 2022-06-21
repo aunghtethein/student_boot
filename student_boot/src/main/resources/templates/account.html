@@ -1,0 +1,25 @@
+<!doctype html>
+<html th:replace="~{layouts/main :: layout(~{::main})}" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+
+<main role="main">
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h3 class="display-3">Account Information</h3>
+			<h4> Current Time On Server : </h4>
+			<h3 th:text="${#temporals.format(localDateTime, 'dd-MM-yyyy HH:mm')}"></h3>
+			
+			<h4 class="mb-4">Logged user: </h4>
+			<h3 th:text="${#session.getAttribute('currentUser')}"></h3>
+		
+           
+        </div>
+    </div>
+
+</main>
+
+
+</body>
+</html>
